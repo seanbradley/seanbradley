@@ -17,4 +17,4 @@ aws ec2 run-instances \
   --user-data file://instance_setup.sh \
   --count 1 \
   --instance-type m1.small \
-  --iam-instance-profile Name=DeployPress-6
+  --iam-instance-profile Name=wolfskill

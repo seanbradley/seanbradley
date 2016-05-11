@@ -1,1 +1,0 @@
-rsync -azv --progress -e "ssh -i /home/seanbradley/.ssh/persist.pem" /home/seanbradley/Desktop/thumbs_up_cat.gif ubuntu@52.73.77.30:/var/www/html/persist-drf/media

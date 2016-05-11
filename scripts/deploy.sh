@@ -23,11 +23,13 @@ sudo apt-get aws-cli
 ./create_instance_profile.sh
 ./add_instance_profile_role_to_instance_profile.sh
 ./spin_up_instances.sh
+#returns instance ID; plug into check_instance_status.sh
+#and describe_instances.sh
 ./check_instance_status.sh
 ./create_tags.sh
 ./describe_instances.sh
-
-    ssh -i ~/.ssh/<yourkeypair>.pem ec2-user@ec2-XX-XXX-XX-XX.compute-1.amazonaws.com
+#returns public DNS; plug into connect_ec2.sh
+./connect_ec2.sh
 
 #When SSH'ing, regular EC2 Linux instances have #"ec2-user"; Ubuntu instances use "ubuntu". 
 #Also chmod 400 the pem file of your keypair.
@@ -45,12 +47,18 @@ sudo apt-get aws-cli
     
     exit
 
-#If service is missing or broken, see #"install_code_deploy_on_an_ec2_instance.txt" in 
-#the /docs directory of this repo. 
-#Install the service. Verify its status.
+#If service is missing or broken...
+./transfer_install_codedeploy.sh
+./connect_ec2.sh
+#sudo su on EC2 machine
+./install_codedeploy.sh #you will need AWS credentials to complete
 
-#For stack creation, instead of a single instance: #execute ./create_stack.sh
-#confirm success with /describe_stack.sh]
+#For stack creation, instead of a single instance: 
+#execute ./create_stack.sh
+#confirm success with /describe_stack.sh
+#NOTE: create_stack.sh NOT POSSIBLE WITH CODEDEPLOY
+#CodeDeploy requires the attachment of an IAM policy 
+#when the instances are created (see spin_up_instances.sh)
 
 ./create_application.sh
 ./list_applications.sh

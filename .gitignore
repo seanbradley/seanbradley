@@ -45,6 +45,7 @@ dummy_emails/
 transfer_wp-config_to_aws.sh
 wp-config.local.php
 wp-config.php
+wolfskil_config.sh
 configure_wp_secrets.sh
 configure_db.sh
 configure_tables.sh
