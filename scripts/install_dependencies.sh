@@ -23,14 +23,15 @@ yum install -y openssh-clients
 #sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MYPASSWORD123'
 #sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MYPASSWORD123'
 
-mkdir /var/www/html/
-cd /var/www/html/
-wget http://wordpress.org/latest.tar.gz
-tar xfz latest.tar.gz
-mkdir wolfskill
-mv ./wordpress/* ./wolfskill
-rmdir ./wordpress/
-rm -f latest.tar.gz
+mkdir /var/www/html/wolfskill
+#mkdir /var/www/html/
+#cd /var/www/html/
+#wget http://wordpress.org/latest.tar.gz
+#tar xfz latest.tar.gz
+#mkdir wolfskill
+#mv ./wordpress/* ./wolfskill
+#rmdir ./wordpress/
+#rm -f latest.tar.gz
 cd /var/www/html/wolfskill
 mkdir scripts
 

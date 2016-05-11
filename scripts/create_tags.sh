@@ -5,5 +5,5 @@
 
 aws ec2 create-tags \
   --region us-west-2 \
-  --resources i-f0081828 \
+  --resources i-315841e9 \
   --tags Key=Name,Value=Wolfskill
