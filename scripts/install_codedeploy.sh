@@ -15,6 +15,6 @@ aws configure
 #enter Default region name (us-east-1)
 #enter Default output format (text)
 
-aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1
+aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-west-1
 chmod +x ./install
 sudo ./install auto
