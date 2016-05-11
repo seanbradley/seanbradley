@@ -7,9 +7,9 @@
 ##########
 #create a new root password for MySQL
 ##########
-cd /var/www/html/deploypress
+cd /var/www/html/wordpress
 
 service mysqld start
 
-mysql -uec2-user -hlocalhost -e "UPDATE mysql.user SET Password = PASSWORD('pepperoni') WHERE User = 'root'; FLUSH PRIVILEGES;"
+mysql -uec2-user -hlocalhost -e "UPDATE mysql.user SET Password = PASSWORD('y3ll0wst0ne3') WHERE User = 'root'; FLUSH PRIVILEGES;"
 exit

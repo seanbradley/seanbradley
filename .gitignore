@@ -1,0 +1,57 @@
+# Python bytecode:
+*.py[co]
+
+# Packaging files:
+*.egg*
+
+# Editor temp files:
+*.swp
+*~
+
+# Sphinx docs:
+build
+
+# SQLite3 database files:
+*.db
+
+# Logs:
+*.log
+
+# Backup files:
+*_bak
+*_old
+
+# Compressed files:
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Secret keys and connections files:
+*connect*
+*secret*
+*.tfvars
+success_deploy.json
+github_resource_permissions.json
+
+# Dummy emails:
+dummy_emails/
+
+# Config files
+transfer_wp-config_to_aws.sh
+wp-config.local.php
+wp-config.php
+configure_wp_secrets.sh
+configure_db.sh
+configure_tables.sh
+wp_salts
+create_superuser
+.htaccess
+
+#Cloudformation Template
+.template
+
