@@ -10,4 +10,7 @@
 
 aws s3 cp s3://grandmashouse/wp-config.php /var/www/html/wolfskill
 
-aws s3 cp s3://grandmashouse/wolfskill_config.sh /var/www/html/wolfskill/scripts
+aws s3 cp s3://grandmashouse/config.sh /var/www/html/wolfskill/scripts
+
+cd /var/www/html/wolfskill/scripts
+sudo chmod +x *.sh
