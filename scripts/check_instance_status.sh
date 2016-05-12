@@ -4,6 +4,6 @@
 
 aws ec2 describe-instance-status \
 --region us-west-2 \
---instance-ids i-315841e9 \
+--instance-ids i-39e1fbe1 \
 --query "InstanceStatuses[*].InstanceStatus.[Status]" \
 --output text 

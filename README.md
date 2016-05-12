@@ -280,7 +280,7 @@ Make a note of the Service Role ARN. You need it to create a Deployment Group.
    
 11) Create the actual Instance Profile itself...
 
-   ./create_instance_profile.sh
+    ./create_instance_profile.sh
 
 12) Add the Instance Profile Role to the Instance Profile...
 
@@ -316,14 +316,33 @@ the script...
 
     ./describe_instances.sh
     
-17) SSH into the EC2 instance (requires the public address of your instance)...
+17) Insert the public DNS into the connect_ec2 
+and transfer_install_codedeploy scripts...
 
-    ssh -i ~/.ssh/<yourkeypair>.pem ec2-user@ec2-XX-XXX-XX-XX.compute-1.amazonaws.com
+    ./transfer_install_codedeploy.sh
+    
+You will need to install the CodeDeploy agent on the 
+machine if it is not included with your AMI from
+spin_up_instances.sh.
+
+You then need to connect to the new EC2 instance via your connection script and run...
+
+    ./install_codedeploy.sh
+    
+You will need the following...
+
+    aws_access_key_id
+    aws_secret_access_key
+    aws_default_region
+    output_format 
+
+These can be retrieved from the values you used for the AWS credentials on your local machine, like so...
+
+    cat ~/.aws/credentials
 
 Remember: when SSH'ing, regular EC2 Linux instances have "ec2-user"; Ubuntu instances use "ubuntu". Remember, too, that you must chmod 400 the pem file of your keypair.
 
-NOTE: You're Security Group must allow for inbound connections
-on the appropriate port, and/or from your IP. Restricting access from other IPs is best practice.
+NOTE: You're Security Group must allow for inbound connections on the appropriate port, and/or from your IP. Restricting access from other IPs is best practice.
 
 18) Confirm that the Code Deploy Agent is installed...
 
@@ -341,6 +360,8 @@ If the service is missing or broken, see "install_code_deploy_on_an_ec2_instance
 Finally exit from the instance...
 
     exit
+    
+Continue via the AWS CLI on your local machine.
 
 19) Create an application...
 

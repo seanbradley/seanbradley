@@ -23,5 +23,5 @@ aws deploy create-deployment-group \
 --application-name wolfskill \
 --deployment-config-name CodeDeployDefault.OneAtATime \
 --deployment-group-name wolfskilldg \
---ec2-tag-filters Key=Name,Value=wolfskill,Type=KEY_AND_VALUE \
+--ec2-tag-filters Key=Name,Value=Wolfskill,Type=KEY_AND_VALUE \
 --service-role-arn arn:aws:iam::234697407490:role/wolfskill_service_role

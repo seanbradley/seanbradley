@@ -16,7 +16,7 @@ hooks:
     - location: scripts/fetch_config.sh
       timeout: 300
       runas: root
-    - location: scripts/wolfskill_config.sh
+    - location: scripts/config.sh
       timeout: 600
       runas: root
     - location: scripts/delete_config.sh
