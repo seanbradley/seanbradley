@@ -7,14 +7,6 @@
 #See /var/log/cloud-init.log for troubleshooting.
 #curl -O \
 #https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-
-##########
-#Fetch config and secrets from S3...
-##########
-
-aws s3 cp s3://grandmashouse/wp-config.php /var/www/html/wolfskill
-
-aws s3 cp s3://grandmashouse/wolfskill_config.sh /var/www/html/wolfskill/scripts
        
 ##########
 #Write global envvars to ~/.bashrc
@@ -81,8 +73,28 @@ awk '/<Directory \/var\/www\/>/,/AllowOverride None/{sub("None", "All",$0)}{prin
 
 service mysqld start
 
-mysql -hlocalhost -uec2-user -e "UPDATE mysql.user SET Password = PASSWORD('y3ll0wst0ne3') WHERE User = 'root'; FLUSH PRIVILEGES;"
-exit
 
-mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "DROP USER ''@'localhost'; DROP USER ''@'ec2-54-188-227-137.us-west-2.compute.amazonaws.com'; CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
+#[stdout]Starting mysqld:  [  OK  ]
+
+#[stderr]+ mysql -hlocalhost -uec2-user -e 'UPDATE mysql.user SET Password = PASSWORD('\''y3ll0wst0ne3'\'') WHERE User = '\''root'\''; FLUSH PRIVILEGES;'
+#[stderr]ERROR 1142 (42000) at line 1: UPDATE command denied to user ''@'localhost' for table 'user'
+
+#mysql -hlocalhost -uec2-user -e "UPDATE mysql.user SET Password = PASSWORD('y3ll0wst0ne3') WHERE User = 'root'; FLUSH PRIVILEGES;"
+#exit
+
+#[stdout]PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+#[stdout]To do so, start the server, then issue the following commands:
+#[stdout]
+/usr/libexec/mysql55/mysqladmin -u root password 'y3ll0wst0ne3'
+/usr/libexec/mysql55/mysqladmin -u root -h ip-54-214-107-236 password 'y3ll0wst0ne3'
+#[stdout]
+#[stdout]Alternatively you can run:
+#[stdout]/usr/libexec/mysql55/mysql_secure_installation
+#[stdout]
+#[stdout]which will also give you the option of removing the test
+#[stdout]databases and anonymous user created by default.  This is
+#[stdout]strongly recommended for production servers.
+#[stdout]
+
+mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "DROP USER ''@'localhost'; DROP USER ''@'ec2-54-214-107-236.us-west-2.compute.amazonaws.com'; CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
 exit

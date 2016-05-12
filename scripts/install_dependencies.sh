@@ -46,3 +46,7 @@ fi
 if [ -f /var/www/html/wolfskill/scripts/wolfskill_config.sh ]; then
     rm -rf /var/www/html/wolfskill/scripts/wolfskill_config.sh
 fi
+
+if [ -f /var/www/html/wolfskill/scripts/config.sh ]; then
+    rm -rf /var/www/html/wolfskill/scripts/config.sh
+fi
