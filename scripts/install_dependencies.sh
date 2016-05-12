@@ -39,8 +39,10 @@ mkdir scripts
 #Fetch WordPress config from S3...
 ##########
 
-aws s3 cp s3://grandmashouse/wp-config.php /var/www/html/wolfskill
+if [ -f /var/www/html/wolfskill/wp-config.php ]; then
+    rm -rf /var/www/html/wolfskill/wp-config.php
+fi
 
 if [ -f /var/www/html/wolfskill/scripts/wolfskill_config.sh ]; then
-    rm -rf /var/www/html/wolfskill/scripts/wolfskill.
+    rm -rf /var/www/html/wolfskill/scripts/wolfskill_config.sh
 fi
