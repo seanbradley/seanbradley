@@ -13,6 +13,9 @@ hooks:
       timeout: 300
       runas: root
   ApplicationStart:
+    - location: scripts/fetch_config.sh
+      timeout: 300
+      runas: root
     - location: scripts/wolfskill_config.sh
       timeout: 600
       runas: root
