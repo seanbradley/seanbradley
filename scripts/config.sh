@@ -86,7 +86,7 @@ service mysqld start
 #[stdout]To do so, start the server, then issue the following commands:
 #[stdout]
 #/usr/libexec/mysql55/mysqladmin -u root password 'y3ll0wst0ne3'
-/usr/libexec/mysql55/mysqladmin -uroot -hlocalhost -py3ll0wst0ne3
+#/usr/libexec/mysql55/mysqladmin -uroot -hlocalhost -py3ll0wst0ne3
 #[stdout]s
 #[stdout]Alternatively you can run:
 #[stdout]/usr/libexec/mysql55/mysql_secure_installation
@@ -96,5 +96,7 @@ service mysqld start
 #[stdout]strongly recommended for production servers.
 #[stdout]
 
-mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "DROP USER ''@'localhost'; DROP USER ''@'ec2-54-214-107-236.us-west-2.compute.amazonaws.com'; CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
+#mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
+#/etc/mysql/my.cnf
+mysql -hlocalhost -e "CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
 exit
