@@ -73,30 +73,5 @@ awk '/<Directory \/var\/www\/>/,/AllowOverride None/{sub("None", "All",$0)}{prin
 
 service mysqld start
 
-
-#[stdout]Starting mysqld:  [  OK  ]
-
-#[stderr]+ mysql -hlocalhost -uec2-user -e 'UPDATE mysql.user SET Password = PASSWORD('\''y3ll0wst0ne3'\'') WHERE User = '\''root'\''; FLUSH PRIVILEGES;'
-#[stderr]ERROR 1142 (42000) at line 1: UPDATE command denied to user ''@'localhost' for table 'user'
-
-#mysql -hlocalhost -uec2-user -e "UPDATE mysql.user SET Password = PASSWORD('y3ll0wst0ne3') WHERE User = 'root'; FLUSH PRIVILEGES;"
-#exit
-
-#[stdout]PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
-#[stdout]To do so, start the server, then issue the following commands:
-#[stdout]
-#/usr/libexec/mysql55/mysqladmin -u root password 'y3ll0wst0ne3'
-#/usr/libexec/mysql55/mysqladmin -uroot -hlocalhost -py3ll0wst0ne3
-#[stdout]s
-#[stdout]Alternatively you can run:
-#[stdout]/usr/libexec/mysql55/mysql_secure_installation
-#[stdout]
-#[stdout]which will also give you the option of removing the test
-#[stdout]databases and anonymous user created by default.  This is
-#[stdout]strongly recommended for production servers.
-#[stdout]
-
 mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "CREATE DATABASE IF NOT EXISTS wolfdendb; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
-#/etc/mysql/my.cnf
-#mysql -hlocalhost -e "CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
 exit
