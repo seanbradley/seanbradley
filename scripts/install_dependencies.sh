@@ -8,20 +8,16 @@ yum install -y php-mysql
 yum install -y openssh-clients
 
 ##########
-#Install WordPress
+#Set root password for database
 ##########
-
-
-#Alternatively, consider setting MySQL root password
-#during this phase of CodeDeploy...
-
-#This is possible via mysql-server.
-
-#The following commands set the MySQL root password to
-#MYPASSWORD123 when installing mysql-server package.
 
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password y3ll0wst0ne3'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password y3ll0wst0ne3'
+
+
+##########
+#Create directories for application code
+##########
 
 mkdir /var/www/html/wolfskill
 #mkdir /var/www/html/
@@ -36,11 +32,16 @@ cd /var/www/html/wolfskill
 mkdir scripts
 
 ##########
-#Fetch WordPress config from S3...
+#If exists, delete old production and 
+#development config...
 ##########
 
 if [ -f /var/www/html/wolfskill/wp-config.php ]; then
     rm -rf /var/www/html/wolfskill/wp-config.php
+fi
+
+if [ -f /var/www/html/wolfskill/wp-config.local.php ]; then
+    rm -rf /var/www/html/wolfskill/wp-config.local.php
 fi
 
 if [ -f /var/www/html/wolfskill/scripts/wolfskill_config.sh ]; then
