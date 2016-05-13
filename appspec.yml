@@ -12,13 +12,13 @@ hooks:
       timeout: 300
       runas: root
   AfterInstall:
+    - location: scripts/fetch_config.sh
+      timeout: 300
+      runas: root
     - location: scripts/change_permissions.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/fetch_config.sh
-      timeout: 300
-      runas: root
     - location: scripts/config.sh
       timeout: 600
       runas: root
