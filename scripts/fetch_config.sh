@@ -8,9 +8,8 @@
 #Fetch config and secrets from S3...
 ##########
 
-aws s3 cp s3://grandmashouse/wp-config.php /var/www/html/wolfskill
+aws s3 cp s3://grandmashouse/wp-config.php /var/www/html/wolfskill/wp-config.php
 
-aws s3 cp s3://grandmashouse/config.sh /var/www/html/wolfskill/scripts
+aws s3 cp s3://grandmashouse/config.sh /var/www/html/wolfskill/scripts/config.sh
 
-cd /var/www/html/wolfskill/scripts
-sudo chmod +x config.sh
+sudo chmod +x /var/www/html/wolfskill/scripts/config.sh
