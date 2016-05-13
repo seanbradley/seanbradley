@@ -1,0 +1,5 @@
+sudo service codedeploy-agent stop
+cd /opt/codedeploy-agent/deployment-root
+mv <long_deployment_hash>/ <long_deployment_hash>~
+cd -
+sudo service codedeploy-agent start
