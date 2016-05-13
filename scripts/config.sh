@@ -96,7 +96,7 @@ service mysqld start
 #[stdout]strongly recommended for production servers.
 #[stdout]
 
-mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "CREATE DATABASE IF NOT EXISTS wolfdendb; CREATE USER IF NOT EXISTS 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
+mysql -hlocalhost -uroot -py3ll0wst0ne3 -e "CREATE DATABASE wolfdendb IF NOT EXISTS; CREATE USER 'bluewolf'@'localhost' IF NOT EXISTS; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
 #/etc/mysql/my.cnf
 #mysql -hlocalhost -e "CREATE DATABASE wolfdendb; CREATE USER 'bluewolf'@'localhost'; GRANT ALL PRIVILEGES ON wolfdendb.* TO 'bluewolf'@'localhost' IDENTIFIED BY 'victorytrail'; FLUSH PRIVILEGES;"
 exit
