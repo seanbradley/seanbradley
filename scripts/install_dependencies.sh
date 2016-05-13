@@ -20,8 +20,8 @@ yum install -y openssh-clients
 #The following commands set the MySQL root password to
 #MYPASSWORD123 when installing mysql-server package.
 
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MYPASSWORD123'
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MYPASSWORD123'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password y3ll0wst0ne3'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password y3ll0wst0ne3'
 
 mkdir /var/www/html/wolfskill
 #mkdir /var/www/html/
