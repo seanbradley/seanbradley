@@ -19,7 +19,7 @@ hooks:
     - location: scripts/config.sh
       timeout: 600
       runas: root
-    - location: scripts/delete_config.sh
+    - location: scripts/delete_configsetup.sh
       timeout: 300
       runas: root
     - location: scripts/start_server.sh
