@@ -14,8 +14,8 @@
 #cd ~/Projects/$1
    
 create_env(){
-    mv wolfskill/* ..
-    sudo rm -r wolfskill
+    mv ./wolfskill/* ..
+    rm -rf wolfskill
     #cd $1
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
@@ -64,12 +64,12 @@ create_repo() {
     fi
 
     echo -n "Creating Github repository '$repo_name' ..."
-    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}' > /dev/null 2>&1
+    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}' #> /dev/null 2>&1
     echo " done."
 
     echo -n "Pushing local code to remote ..."
-    git remote add origin git@github.com:$username/$repo_name.git > /dev/null 2>&1
-    git push -u origin master > /dev/null 2>&1
+    git remote add origin https://github.com/$username/$repo_name.git #> /dev/null 2>&1
+    git push -u origin master #> /dev/null 2>&1
     echo " done."
 }
 
