@@ -19,7 +19,9 @@ build
 
 # Backup files:
 *_bak
+*.bak
 *_old
+*.old
 
 # Compressed files:
 *.7z
@@ -45,14 +47,16 @@ dummy_emails/
 transfer_wp-config_to_aws.sh
 wp-config.local.php
 wp-config.php
-#config.sh
+config.sh
 wolfskill_config.sh
 configure_wp_secrets.sh
 configure_db.sh
 configure_tables.sh
 wp_salts
 create_superuser
+deploy_via_boto.py
 .htaccess
+
 
 #Cloudformation Template
 .template

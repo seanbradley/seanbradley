@@ -1,3 +1,14 @@
+#If for whatever reason your ApplicationStop hooks are 
+#badly written or will fail CodeDeploy will always 
+#fail because the local version can't be overwritten 
+#because the hook fails to execute. To get around this 
+#ssh to the server and delete all of the folders 
+#except for deployment-instructions in 
+#/opt/codedeploy-agent/deployment-root/ (Amazon Linux 
+#for sure not sure about Ubuntu). And then delete all 
+#of the files inside deployment-instructions.
+
+
 sudo service codedeploy-agent stop
 cd /opt/codedeploy-agent/deployment-root
 mv <long_deployment_hash>/ <long_deployment_hash>~
