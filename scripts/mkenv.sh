@@ -18,12 +18,16 @@ create_env(){
     echo "Project's virtualenv name will be "$1"."
     mkvirtualenv $1
     setvirtualenvproject
-    git clone https://github.com/seanbradley/wolfskill.git
+    #git clone https://github.com/seanbradley/wolfskill.git
     mkdir $1
     mv ./wolfskill/* ./$1
-    rmdir ./wolfskill/
+    rm -r ./wolfskill/
     cd $1
-    mkdir scripts
+    #mkdir scripts
+    pip install -r requirements.txt
+    cd scripts
+    #python swap_project_name.py
+    #./deploy.sh
     deactivate
 } 
 
@@ -33,16 +37,16 @@ create_env(){
 create_repo() {
     repo_name=$1
 
-    dir_name=`basename $(pwd)`
+    #dir_name=`basename $(pwd)`
 
     if [ "$repo_name" = "" ]; 
     then echo "Repo name? (Hit enter to use $1)"
     read repo_name
     fi
 
-    if [ "$repo_name" = "" ]; 
-    then repo_name=$dir_name
-    fi
+    #if [ "$repo_name" = "" ]; 
+    #then repo_name=$dir_name
+    #fi
 
     username=`git config github.user`
     if [ "$username" = "" ]; 

@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+#>>>deploy.sh<<<
+#
 #MAIN SCRIPT FOR DEPLOYPRESS (BASH / AWS CLI)
 #
 #You must have the aws cli and credentials
@@ -12,11 +14,22 @@
 #cd -
 #sudo apt-get aws-cli
 #
-#Execute...
-#1) clone repo and all utility scripts
-#2) set_up_env.py
-#3) swap_project_name.py
-#4) deploy.sh (or deploy.py)
+#The following git global config values must 
+#already be set... 
+#
+#git config --global github.user <username>
+#git config --global github.token <token>
+#
+#Once done, execute these steps...
+#
+#1) mkdir new directory on local dev station with <projectname>
+#2) cd <projectname>
+#3) git clone https://github.com/seanbradley/wolfskill.git
+#4) cd scripts
+#5) python set_up_env.py
+#6) workon <projectname>
+#7) python swap_project_name.py
+#8) ./deploy.sh (or deploy.py)
 ##############################
 
 ./create_user.sh

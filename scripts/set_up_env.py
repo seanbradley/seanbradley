@@ -3,8 +3,6 @@
 import os, sys, subprocess
 
 def startenv ():
-    prompt = "Enter new user name: "
-    username = str(raw_input(prompt))
     prompt = "Enter new project name: "
     projectname = str(raw_input(prompt))
     print "Setting up new project named %s..." % projectname 
