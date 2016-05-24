@@ -15,9 +15,9 @@
    
 create_env(){
     cd ..
-    mv wolfskill/* $1
-    rm -rf wolfskill
-    #cd $1
+    mv $1/wolfskill/* $1
+    rm -rf $1/wolfskill
+    cd $1
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
     mkvirtualenv $1
