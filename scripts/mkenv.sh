@@ -14,7 +14,8 @@
 #cd ~/Projects/$1
    
 create_env(){
-    mv ./wolfskill/* ..
+    cd ..
+    mv wolfskill/* $1
     rm -rf wolfskill
     #cd $1
     source /usr/local/bin/virtualenvwrapper.sh
@@ -38,10 +39,10 @@ create_repo() {
 
     #dir_name=`basename $(pwd)`
 
-    if [ "$repo_name" = "" ]; 
-    then echo "Repo name? (Hit enter to use $1)"
-    read repo_name
-    fi
+    #if [ "$repo_name" = "" ]; 
+    #then echo "Repo name? (Hit enter to use $1)"
+    #read repo_name
+    #fi
 
     #if [ "$repo_name" = "" ]; 
     #then repo_name=$dir_name
@@ -64,12 +65,11 @@ create_repo() {
     fi
 
     echo -n "Creating Github repository '$repo_name' ..."
-    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}' #> /dev/null 2>&1
+    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}'
     echo " done."
-
     echo -n "Pushing local code to remote ..."
-    git remote add origin https://github.com/$username/$repo_name.git #> /dev/null 2>&1
-    git push -u origin master #> /dev/null 2>&1
+    git remote add origin https://github.com/$username/$repo_name.git 
+    git push -u origin master
     echo " done."
 }
 

@@ -7,6 +7,6 @@ def startenv ():
     projectname = str(raw_input(prompt))
     print "Setting up new project named %s..." % projectname 
     subprocess.call( ["./mkenv.sh %s" % projectname], shell=True)
-    return (username, projectname)
+    return projectname
 
 startenv()
