@@ -14,18 +14,17 @@ mkdir ~/Projects/$1
 cd ~/Projects/$1
    
 create_env(){
+    mv wolfskill/* ..
+    rm -r wolfskill
+    cd $1
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
     mkvirtualenv $1
     setvirtualenvproject
     #git clone https://github.com/seanbradley/wolfskill.git
-    mkdir $1
-    mv ./wolfskill/* ./$1
-    rm -r ./wolfskill/
-    cd $1
     #mkdir scripts
     pip install -r requirements.txt
-    cd scripts
+    #cd scripts
     #python swap_project_name.py
     #./deploy.sh
     deactivate

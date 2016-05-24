@@ -25,7 +25,7 @@
 #1) mkdir new directory on local dev station with <projectname>
 #2) cd <projectname>
 #3) git clone https://github.com/seanbradley/wolfskill.git
-#4) cd scripts
+#4) cd wolfskill/scripts
 #5) python set_up_env.py
 #6) workon <projectname>
 #7) python swap_project_name.py
