@@ -10,20 +10,20 @@
 #Keep secret keys out of version control
 ####################
 
-mkdir ~/Projects/$1
-cd ~/Projects/$1
+#mkdir ~/Projects/$1
+#cd ~/Projects/$1
    
 create_env(){
     mv wolfskill/* ..
-    rm -r wolfskill
-    cd $1
+    sudo rm -r wolfskill
+    #cd $1
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
     mkvirtualenv $1
     setvirtualenvproject
     #git clone https://github.com/seanbradley/wolfskill.git
     #mkdir scripts
-    pip install -r requirements.txt
+    #pip install -r requirements.txt
     #cd scripts
     #python swap_project_name.py
     #./deploy.sh
