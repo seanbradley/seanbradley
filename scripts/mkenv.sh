@@ -15,12 +15,18 @@
    
 create_env(){
     cd ..
-    mv $1/wolfskill/* $1
-    rm -rf $1/wolfskill
-    cd $1
+    echo "Present working directory #1 is..." 
+    echo pwd
+    mv wolfskill/* ..
+    cd ..
+    rm -rf wolfskill
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
+    echo "Present working directory #2 is..." 
+    echo pwd
     mkvirtualenv $1
+    echo "Present working directory #3 is..." 
+    echo pwd
     setvirtualenvproject
     #git clone https://github.com/seanbradley/wolfskill.git
     #mkdir scripts
