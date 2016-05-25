@@ -29,11 +29,10 @@
 #2) cd <projectname>
 #3) git clone https://github.com/seanbradley/wolfskill.git . #<--note the dot
 #[clone via the GitHub API and include username/password in call]
-#4) cd wolfskill/scripts
-#5) python set_up_env.py
-#6) workon <projectname>
-#7) python swap_project_name.py
-#8) ./deploy.sh (or deploy.py)
+#4) python scripts/set_up_env.py
+#5) workon <projectname>
+#6) python swap_project_name.py
+#7) ./deploy.sh (or deploy.py)
 ##############################
 
 ./create_user.sh

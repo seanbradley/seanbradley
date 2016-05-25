@@ -14,17 +14,13 @@
 #cd ~/Projects/$
    
 create_env(){
-    cd $1
     echo "Present working directory is..." 
     pwd
     #mv ./wolfskill/* .
     #cd .
     #rm -rf wolfskill
     source /usr/local/bin/virtualenvwrapper.sh
-    echo "Project's virtualenv name will be "$1"."
     mkvirtualenv $1
-    echo "Present working directory is..." 
-    pwd
     setvirtualenvproject
     #git clone https://github.com/seanbradley/wolfskill.git
     #mkdir scripts
@@ -32,8 +28,9 @@ create_env(){
     #cd scripts
     #python swap_project_name.py
     #./deploy.sh
-    git -f flow init
-    deactivate
+    echo "Setting up Git Flow..."
+    git flow init
+    #deactivate
 } 
 
 #See https://www.viget.comhttps://github.com/settings/tokens/new/articles/create-a-github-repo-from-the-command-line  
@@ -72,8 +69,12 @@ create_repo() {
     echo -n "Creating Github repository '$repo_name' ..."
     curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}'
     echo " done."
-    echo -n "Pushing local code to remote ..."
-    git remote add origin https://github.com/$username/$repo_name.git 
+    echo -n "Swapping original remote origin for new one."
+    git remote rm origin
+    git remote add origin https://github.com/$username/$repo_name.git
+    #git config master.remote origin
+    #git config master.merge refs/heads/master
+    echo -n "Pushing local code to new remote ..."
     git push -u origin master
     echo " done."
 }

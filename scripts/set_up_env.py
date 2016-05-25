@@ -3,10 +3,10 @@
 import os, sys, subprocess
 
 def startenv ():
-    prompt = "Enter new project name: "
+    prompt = "Enter new virtualenv's name: "
     projectname = str(raw_input(prompt))
-    print "Setting up new project named %s..." % projectname 
-    subprocess.call( ["./mkenv.sh %s" % projectname], shell=True)
-    return projectname
+    print "Setting up new virtualenv named %s..." % env_name 
+    subprocess.call( ["scripts/mkenv.sh %s" % env_name], shell=True)
+    return env_name
 
 startenv()
