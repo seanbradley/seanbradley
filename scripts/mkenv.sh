@@ -19,6 +19,8 @@ create_env(){
     #mv ./wolfskill/* .
     #cd .
     #rm -rf wolfskill
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Projects
     source /usr/local/bin/virtualenvwrapper.sh
     mkvirtualenv $1
     setvirtualenvproject
