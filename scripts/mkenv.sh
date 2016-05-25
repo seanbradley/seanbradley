@@ -14,10 +14,10 @@
 #cd ~/Projects/$1
    
 create_env(){
-    cd ..
+    cd ~/Projects/$1
     echo "Present working directory #1 is..." 
     pwd
-    mv /wolfskill/* ..
+    mv ./wordpress/* ..
     cd ..
     rm -rf wolfskill
     source /usr/local/bin/virtualenvwrapper.sh
