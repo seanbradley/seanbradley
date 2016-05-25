@@ -20,10 +20,10 @@ prompt = "Enter name of old project: "
 old_project = str(raw_input(prompt))
 prompt = "Enter name of new project: "
 new_project = str(raw_input(prompt))
-print = "Limit project name replacement to certain file types?"
-print = "If--for example--only BASH scripts, then enter '*.sh' (no quotes);"
-print = "if only Python scripts--then *.py; if only PHP--then *.php, etc."
-print = "But to search and replace project name in all files, then *.*."
+print "Limit project name replacement to certain file types?"
+print "If--for example--only BASH scripts, then enter '*.sh' (no quotes);"
+print "if only Python scripts--then *.py; if only PHP--then *.php, etc."
+print "But to search and replace project name in all files, then *.*."
 sleep(3)
 prompt = "Enter file type in which swap is preferred; enter *.* for all files: "
 filetype = str(raw_input(prompt))

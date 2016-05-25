@@ -31,7 +31,8 @@
 #[clone via the GitHub API and include username/password in call]
 #4) python scripts/set_up_env.py
 #5) workon <projectname>
-#6) python swap_project_name.py
+#6) python scripts/swap_project_name.py
+#[see inline doc in swap_project_name about changing tags]
 #7) ./deploy.sh (or deploy.py)
 ##############################
 
