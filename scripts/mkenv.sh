@@ -24,18 +24,11 @@ create_env(){
     source /usr/local/bin/virtualenvwrapper.sh
     mkvirtualenv $1
     setvirtualenvproject
-    #git clone https://github.com/seanbradley/wolfskill.git
-    #mkdir scripts
-    #pip install -r requirements.txt
-    #cd scripts
-    #python swap_project_name.py
-    #./deploy.sh
     echo "Setting up Git Flow..."
     git flow init
-    #deactivate
 } 
 
-#See https://www.viget.comhttps://github.com/settings/tokens/new/articles/create-a-github-repo-from-the-command-line  
+#See https://www.viget.com/articles/create-a-github-repo-from-the-command-line  
 #Get token from https://github.com/settings/tokens/new
 #Need to git flow init                      
 create_repo() {
@@ -68,15 +61,15 @@ create_repo() {
     then return 1
     fi
 
-    echo -n "Creating Github repository '$repo_name' ..."
-    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}'
+    echo "Creating Github repository '$repo_name' ..."
+    curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repo_name'"}' > /dev/null 2>&1
     echo " done."
-    echo -n "Swapping original remote origin for new one."
+    echo "Swapping remote origin for a new one..."
     git remote rm origin
     git remote add origin https://github.com/$username/$repo_name.git
     #git config master.remote origin
     #git config master.merge refs/heads/master
-    echo -n "Pushing local code to new remote ..."
+    echo "Pushing local code to new remote ..."
     git push -u origin master
     echo " done."
 }
