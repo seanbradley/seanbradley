@@ -11,21 +11,19 @@
 ####################
 
 #mkdir ~/Projects/$1
-#cd ~/Projects/$1
+#cd ~/Projects/$
    
 create_env(){
-    cd ~/Projects/$1
-    echo "Present working directory #1 is..." 
+    cd $1
+    echo "Present working directory is..." 
     pwd
-    mv ./wordpress/* ..
-    cd ..
-    rm -rf wolfskill
+    #mv ./wolfskill/* .
+    #cd .
+    #rm -rf wolfskill
     source /usr/local/bin/virtualenvwrapper.sh
     echo "Project's virtualenv name will be "$1"."
-    echo "Present working directory #2 is..." 
-    pwd
     mkvirtualenv $1
-    echo "Present working directory #3 is..." 
+    echo "Present working directory is..." 
     pwd
     setvirtualenvproject
     #git clone https://github.com/seanbradley/wolfskill.git
@@ -34,6 +32,7 @@ create_env(){
     #cd scripts
     #python swap_project_name.py
     #./deploy.sh
+    git -f flow init
     deactivate
 } 
 

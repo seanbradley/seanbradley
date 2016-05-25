@@ -24,10 +24,10 @@
 #(These can be scripted, and run via a single BASH script
 #place in the ~/Project directory on one's local machine)
 #
-#1) mkdir new directory on local dev station with <projectname>
-#[mkdir via user input of new project name]
+#1) mkdir <projectname>
+#[if automating this, mkdir via user input]
 #2) cd <projectname>
-#3) git clone https://github.com/seanbradley/wolfskill.git
+#3) git clone https://github.com/seanbradley/wolfskill.git . #<--note the dot
 #[clone via the GitHub API and include username/password in call]
 #4) cd wolfskill/scripts
 #5) python set_up_env.py
